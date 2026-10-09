@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SEO Starter Kit ฟรี | SUNFOUND SEO</title>
+<meta name="description" content="E-book ฟรี: เริ่มเขียน SEO Content ได้เองใน 6 ขั้นตอน จากคนทำ SEO ใน Agency จริง">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F6F3EF; --line:#E6E0D8;
+  --ink:#1E1C1A; --muted:#5E5953;
+  --orange:#F47A2A; --orange-ink:#C2490A; --btn:#CF4F0B; --btn-hover:#B4430A; --on-btn:#FFFFFF;
+  --sun:#FFB23F;
+  --display:"Anuphan", "Noto Sans Thai", system-ui, sans-serif;
+  --body:"IBM Plex Sans Thai Looped", "Noto Sans Thai Looped", "Sarabun", system-ui, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1D1C1B; --surface:#272524; --line:#3A3734;
+    --ink:#F4F1ED; --muted:#BDB5AC; --orange-ink:#FF9A55;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1D1C1B; --surface:#272524; --line:#3A3734;
+  --ink:#F4F1ED; --muted:#BDB5AC; --orange-ink:#FF9A55;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:1.25;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+a{color:var(--orange-ink)}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:19px;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.logo b{color:var(--orange-ink);font-weight:700}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{color:var(--muted);text-decoration:none;font-size:15px}
+.nav ul a:hover{color:var(--ink)}
+.theme{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border:0;border-radius:10px;background:var(--btn);color:var(--on-btn);font-family:var(--display);font-weight:600;font-size:16px;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--btn-hover)}
+.btn.sm{min-height:44px;padding:0 16px;font-size:15px}
+@media (max-width:780px){.nav ul{display:none}.nav .btn.sm{margin-left:auto}}
+@media (max-width:480px){.nav{gap:10px}.nav.wrap{padding:0 16px}.logo{font-size:16px;gap:7px}.logo>svg{width:24px}.nav .btn.sm{padding:0 12px;font-size:14px}}
+@media (max-width:380px){.logo>svg{display:none}.logo{font-size:15px}}
+
+/* hero */
+.hero{padding:72px 0 88px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.slogan{display:flex;align-items:center;gap:12px;color:var(--orange-ink);font-weight:500;font-size:15px;margin-bottom:18px}
+.slogan::before{content:"";width:32px;height:3px;border-radius:2px;background:var(--orange)}
+.hero h1{font-size:clamp(36px,5.4vw,58px);font-weight:700;letter-spacing:-.01em}
+.hero .lede{margin-top:20px;color:var(--muted);font-size:18px;max-width:34em}
+
+/* search motif */
+.search{margin-top:30px;display:flex;align-items:center;gap:12px;max-width:520px;padding:12px 18px;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.search svg{flex:none;color:var(--muted)}
+.search .q{font-size:16px;color:var(--ink);white-space:nowrap;overflow:hidden}
+.search .caret{display:inline-block;width:2px;height:1.1em;background:var(--orange);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.search-note{margin:10px 0 0 20px;font-size:14px;color:var(--muted)}
+
+/* form */
+.optin{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:600px}
+.optin .f{display:flex;flex-direction:column;gap:4px}
+.optin .f label{font-size:14px;font-weight:500;color:var(--muted)}
+.optin input,.optin select{min-height:52px;padding:0 16px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;width:100%}
+.optin select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23857D74' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.optin select:invalid{color:var(--muted)}
+.optin input::placeholder{color:var(--muted)}
+.optin input:focus,.optin select:focus{outline:none;border-color:var(--orange)}
+.optin .f:nth-of-type(3){grid-column:1/-1}
+.optin .btn{min-height:52px;grid-column:1/-1;order:6}
+.optin .consent{order:5}
+.optin .err{order:8}
+.privacy-note{order:7;grid-column:1/-1;margin:0;text-align:center;font-size:13px;color:var(--muted)}
+.privacy-note a{margin-left:4px}
+.consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);line-height:1.55;cursor:pointer}
+.consent input{flex:none;width:20px;height:20px;min-height:0;margin:2px 0 0;padding:0;accent-color:var(--btn)}
+.consent a{margin-left:4px}
+.err{grid-column:1/-1;color:#B3261E;font-size:14px;min-height:1em}
+:root[data-theme="dark"] .err{color:#FF8A80}
+.checks{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 22px;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.checks li{display:flex;align-items:center;gap:8px}
+.checks svg{color:var(--orange-ink)}
+.survey{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.sv-h{font-weight:600;color:var(--ink)!important}
+.sv-h span{font-weight:400;color:var(--muted)}
+.survey fieldset{border:0;margin:14px 0 0;padding:0}
+.survey legend{font-size:14px;color:var(--muted);margin-bottom:8px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{min-height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+.opts button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sv-thanks{margin-top:14px!important;color:var(--orange-ink)!important;font-weight:500}
+.done{display:none;margin-top:28px;max-width:560px;padding:22px 24px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.done h3{font-size:20px}
+.done p{margin-top:6px;color:var(--muted)}
+.done .btn{margin-top:16px}
+.sent .optin,.sent .checks{display:none}
+.sent .done{display:block}
+@media (max-width:640px){.optin{grid-template-columns:1fr}.optin .btn{width:100%}}
+
+/* book */
+.book-stage{display:flex;justify-content:center;perspective:1400px}
+.book{position:relative;width:min(330px,80vw);aspect-ratio:3/4.1;transform:rotateY(-14deg) rotateX(3deg);transform-style:preserve-3d;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:rotateY(-14deg) rotateX(3deg) translateY(28px);opacity:0}}
+.cover{position:absolute;inset:0;border-radius:4px 10px 10px 4px;background:#FFFDF9;color:#1E1C1A;padding:30px 28px;display:flex;flex-direction:column;box-shadow:24px 30px 50px -18px rgba(40,20,0,.35),inset 6px 0 0 #E9E2D8;overflow:hidden}
+.page-edge{position:absolute;top:6px;bottom:6px;right:-12px;width:12px;background:repeating-linear-gradient(90deg,#EEE8DF 0 1px,#FBF8F3 1px 3px);transform:rotateY(70deg);transform-origin:left}
+.cover .brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:13px}
+.cover .brand b{color:#C2490A}
+.cover h2{margin-top:18px;font-size:30px;line-height:1.05}
+.cover h2 .big{display:block;font-size:70px;line-height:.95;color:#F47A2A;letter-spacing:-.01em}
+.cover .sub{margin-top:10px;font-family:var(--display);font-weight:600;font-size:14.5px;color:#1E1C1A;line-height:1.45}
+.cover .sub b{color:#C2490A;font-weight:700}
+.csearch{margin-top:12px;display:flex;align-items:center;gap:6px;padding:6px 12px;border:1.5px solid #E6E0D8;border-radius:999px;font-size:10.5px;color:#5E5953;white-space:nowrap;overflow:hidden}
+.cover .art{margin-top:auto;position:relative;height:36%}
+.cover .tags{display:flex;justify-content:space-between;gap:10px;font-size:10px;font-weight:600;color:#5E5953;border-top:1px solid #E6E0D8;padding-top:9px;margin-top:10px}
+.cover .tags .pg{color:#C2490A}
+.free{position:absolute;top:-16px;right:-16px;width:84px;height:84px;border-radius:50%;background:#FFFFFF;border:3px solid #F47A2A;color:#CF4F0B;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:26px;transform:rotate(10deg);box-shadow:0 8px 18px -8px rgba(180,60,0,.45)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.book-stage{margin-top:12px}}
+
+/* sections */
+section{padding:88px 0}
+.alt{background:var(--surface)}
+.sec-head{max-width:640px}
+.sec-head h2{font-size:clamp(28px,3.6vw,38px)}
+.sec-head p{margin-top:12px;color:var(--muted)}
+.pains{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pain{padding:26px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
+.pain q{display:block;font-family:var(--display);font-weight:600;font-size:19px;quotes:"“" "”"}
+.pain p{margin-top:10px;color:var(--muted);font-size:16px}
+@media (max-width:820px){.pains{grid-template-columns:1fr}}
+
+.steps{margin-top:44px;list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;font-size:34px;line-height:1;color:var(--orange-ink)}
+.steps h3{font-size:19px}
+.steps p{margin-top:4px;color:var(--muted);font-size:16px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+.extras{margin-top:36px;padding:24px 26px;border-radius:16px;background:var(--surface)}
+.extras-h{font-family:var(--display);font-weight:600;font-size:18px}
+.extras ul{margin:14px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.extras li{display:flex;flex-direction:column;gap:2px;padding-left:14px;border-left:3px solid var(--orange)}
+.extras li span{font-size:14px;color:var(--muted);line-height:1.5}
+@media (max-width:860px){.extras ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.extras ul{grid-template-columns:1fr}}
+.who{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.who article{padding:30px;border-radius:14px;border:1px solid var(--line);background:var(--bg)}
+.who h3{font-size:21px}
+.who .from,.who .to{margin-top:14px;font-size:16px}
+.who .from{color:var(--muted)}
+.who .to{font-weight:500}
+.who .arrow{display:block;margin:6px 0;color:var(--orange-ink);font-size:20px;line-height:1}
+@media (max-width:760px){.who{grid-template-columns:1fr}}
+
+.about{display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;align-items:start}
+.photo{aspect-ratio:1;border-radius:50%;background:var(--surface);border:2px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:14px;text-align:center;padding:20px}
+.about blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,28px);line-height:1.4}
+.about .story{margin-top:20px;color:var(--muted);max-width:36em}
+.about .story p+p{margin-top:12px}
+.about .sig{margin-top:20px;font-weight:600}
+img.photo{display:block;width:100%;height:auto;padding:0;border:0;object-fit:cover;box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--orange)}
+.about .sig{font-family:var(--display);font-size:20px}
+.title-r{display:block;font-family:var(--body);font-weight:500;font-size:15px;color:var(--orange-ink)}
+@media (max-width:760px){.about{grid-template-columns:1fr}.photo,img.photo{width:160px}}
+
+.next{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.ladder{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.ladder li{display:flex;justify-content:space-between;gap:12px;padding:16px 20px;border-radius:12px;border:1px solid var(--line);background:var(--bg)}
+.ladder li.now{border-color:var(--orange);box-shadow:inset 4px 0 0 var(--orange)}
+.ladder small{color:var(--muted);white-space:nowrap}
+@media (max-width:760px){.next{grid-template-columns:1fr}}
+
+.faq{margin-top:32px;max-width:760px}
+.faq details{border-top:1px solid var(--line);padding:4px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:16px 0;font-family:var(--display);font-weight:600;font-size:18px;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--orange-ink);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 18px;color:var(--muted)}
+
+.final{text-align:center}
+.final h2{font-size:clamp(28px,4vw,42px)}
+.final p{margin:12px auto 0;color:var(--muted);max-width:30em}
+.final .btn{margin-top:26px}
+
+footer{padding:36px 0 44px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+.thumb.art{padding:0;display:block}
+.thumb.art{aspect-ratio:4/3}
+.thumb.art>svg{display:block;width:100%;height:100%}
+.card.feature .thumb.art{aspect-ratio:auto;height:230px}
+.wm{white-space:nowrap}
+.wm .o{width:.86em;height:.86em;vertical-align:-.1em;margin:0 .01em}
+
+.was{margin-right:10px;font-size:.6em;font-weight:500;color:var(--muted)}
+#pd{width:min(560px,calc(100% - 24px));max-height:min(88vh,860px);padding:0;border:0;border-radius:20px;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+#pd::backdrop{background:rgba(20,16,12,.55)}
+.pd-body{position:relative;max-height:min(88vh,860px);overflow-y:auto;display:flex;flex-direction:column}
+.pd-close{position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);cursor:pointer;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.pd-art{background:var(--surface);height:200px;flex:none}
+.pd-art.dark{background:#2A2724}
+.pd-art>svg{display:block;width:100%;height:100%}
+.pd-main{padding:22px 26px 8px}
+.pd-cat{font-size:13px;font-weight:600;color:var(--orange-ink)}
+.pd-main h3{margin-top:4px;font-size:26px}
+.pd-desc{margin-top:8px;color:var(--muted)}
+.pd-price{margin-top:14px;font-family:var(--display);font-weight:700;font-size:28px}
+.pd-main h4{margin:22px 0 8px;font-family:var(--display);font-size:17px}
+.pd-inc{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.pd-inc li{position:relative;padding-left:28px}
+.pd-inc li::before{content:"";position:absolute;left:2px;top:.45em;width:16px;height:16px;border-radius:4px;background:var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.pd-toc ol{margin:0;padding-left:22px;columns:2;column-gap:24px;font-size:15px;color:var(--muted)}
+.pd-toc li{break-inside:avoid;padding:2px 0}
+@media (max-width:480px){.pd-toc ol{columns:1}}
+.pd-groups{display:flex;flex-direction:column;gap:10px}
+.pd-group{padding:14px 16px;border-radius:12px;background:var(--surface)}
+.pd-gt{font-family:var(--display);font-weight:600;font-size:15px;color:var(--orange-ink);margin-bottom:6px}
+.pd-gi{display:flex;flex-direction:column;padding:6px 0}
+.pd-gi+.pd-gi{border-top:1px solid var(--line)}
+.pd-gi b{font-weight:600}
+.pd-gi span{font-size:14px;color:var(--muted)}
+.pd-note{margin-top:12px;font-size:14px;color:var(--muted)}
+.pd-meta{margin:22px 0 10px;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:15px}
+.pd-meta dt{font-weight:600}
+.pd-meta dd{margin:0;color:var(--muted)}
+.pd-foot{position:sticky;bottom:0;padding:16px 26px 20px;background:var(--bg);border-top:1px solid var(--line)}
+.pd-foot .btn{width:100%}
+.pd-foot p{margin-top:8px;text-align:center;font-size:13px;color:var(--muted)}
+.btn[aria-disabled="true"]{pointer-events:none}
+
+.legal{width:min(720px,calc(100% - 24px));max-height:min(90vh,920px);padding:0;border:0;border-radius:20px;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+.legal::backdrop{background:rgba(20,16,12,.55)}
+.lg-body{position:relative;max-height:min(90vh,920px);overflow-y:auto;padding:36px 32px 40px}
+.lg-close{position:sticky;top:0;float:right;margin:-16px -12px 0 0}
+.legal h2{font-size:28px;padding-right:48px}
+.lg-date{margin-top:6px;font-size:14px;color:var(--muted)}
+.legal h3{margin:28px 0 8px;font-size:19px}
+.legal p,.legal li{font-size:16px;line-height:1.75}
+.legal p+p{margin-top:10px}
+.legal ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.legal p:first-of-type+p{margin-top:16px}
+footer a{color:inherit;margin-right:12px}
+@media (max-width:480px){.lg-body{padding:28px 20px 32px}}
+
+/* reviews */
+.rv-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.rv-nav{display:flex;gap:8px}
+.rv-nav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.rv-nav button:hover{border-color:var(--ink)}
+.rv-nav button:disabled{opacity:.35;cursor:default}
+.sample-note{margin-top:14px;display:inline-block;padding:4px 12px;border-radius:999px;background:var(--surface);border:1px dashed var(--line);color:var(--muted);font-size:13px}
+.track{margin-top:28px;display:grid;grid-auto-flow:column;grid-auto-columns:min(370px,86%);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 12px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.rv{scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:16px;border:1px solid var(--line);background:var(--bg)}
+.rv .stars{display:flex;gap:3px;color:var(--orange)}
+.rv blockquote{margin:0;font-size:16.5px;line-height:1.7}
+.rv .used{align-self:flex-start;font-size:13px;font-weight:600;color:var(--orange-ink);background:color-mix(in srgb,var(--orange) 12%,transparent);padding:3px 10px;border-radius:999px}
+.rv .who-r{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--line)}
+.rv .av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;background:#FFE9DA;color:#8F3507}
+.rv .nm{font-family:var(--display);font-weight:600;line-height:1.3}
+.rv .rl{font-size:14px;color:var(--muted);line-height:1.4}
+.dots{margin-top:14px;display:flex;justify-content:center;gap:6px}
+.dots{gap:0!important}
+.dots button{position:relative;width:24px;height:44px;padding:0;border:0;background:none;cursor:pointer}
+.dots button::after{content:"";position:absolute;left:7px;top:17px;width:10px;height:10px;border-radius:5px;background:var(--line);transition:width .2s}
+.dots button[aria-current="true"]{width:40px}
+.dots button[aria-current="true"]::after{width:26px;background:var(--orange)}
+
+/* shop */
+.chips{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:15px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:var(--bg);overflow:hidden}
+.card.feature{grid-column:span 2}
+@media (max-width:600px){.card.feature{grid-column:auto}}
+.thumb{position:relative;aspect-ratio:16/9;display:flex;align-items:flex-end;padding:18px 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.card.feature .thumb{aspect-ratio:auto;min-height:180px}
+.thumb .kind{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.15;max-width:12em}
+.thumb .sun{position:absolute;top:16px;right:18px;width:46px;height:23px;border-radius:46px 46px 0 0;background:var(--orange)}
+.thumb.dark{background:#2A2724;color:#F4F1ED;border-color:#2A2724}
+.badge{position:absolute;top:14px;left:16px;padding:2px 10px;border-radius:999px;background:var(--btn);color:#fff;font-size:13px;font-weight:600}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:19px}
+.card .cat{font-size:13px;color:var(--orange-ink);font-weight:600}
+.card p{color:var(--muted);font-size:15px}
+.card .buy{margin-top:auto;padding-top:14px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.price{font-family:var(--display);font-weight:700;font-size:20px;white-space:nowrap;line-height:1.25}
+.price .was{display:block;margin:0;font-size:13px}
+.btn{white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn[aria-disabled="true"]{background:var(--surface);color:var(--muted);cursor:default;border:1px solid var(--line)}
+.empty{margin-top:28px;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="SUNFOUND SEO หน้าแรก">
+      <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true"><g stroke="#F47A2A" stroke-width="2.2" stroke-linecap="round"><path d="M15 2v3M6 5.5l2 2M24 5.5l-2 2M2 13h3M25 13h3"/></g><path d="M7 16a8 8 0 0 1 16 0z" fill="#F47A2A"/><path d="M3 19.5h24" stroke="#F47A2A" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span class="wm">SUNF<svg class="o" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7" fill="none" stroke="currentColor" stroke-width="3.2"/><path d="m15.6 15.6 5.4 5.4" stroke="#F47A2A" stroke-width="3.6" stroke-linecap="round"/></svg>UND <b>SEO</b></span>
+    </a>
+    <ul>
+      <li><a href="#shop">สินค้า</a></li>
+      <li><a href="#inside">ในเล่มมีอะไร</a></li>
+      <li><a href="#about">เกี่ยวกับ</a></li>
+      <li><a href="#faq">คำถามที่พบบ่อย</a></li>
+    </ul>
+    <button class="theme" id="theme" type="button" aria-label="สลับโหมดสว่าง/มืด">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <a class="btn sm" href="#get">รับ E-book ฟรี</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div id="get">
+        <div class="slogan">เขียนให้คนอ่าน เจอให้คนค้นหา</div>
+        <h1>เริ่มเขียน SEO Content ให้คนค้นเจอ ใน 6 ขั้น</h1>
+        <p class="lede">E-book ฟรี 21 หน้า คู่มือฉบับลงมือทำจากประสบการณ์จริงใน Agency สำหรับคนที่เขียนคอนเทนต์อยู่แล้ว และอยากให้บทความถูกค้นเจอ โดยไม่ต้องจ่ายค่า Ads ไปตลอด</p>
+
+        <div class="search" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="q"><span id="typed"></span><span class="caret"></span></span>
+        </div>
+        <p class="search-note">มีคนกำลังค้นหาคำตอบนี้อยู่ทุกวัน Content ของคุณควรเป็นสิ่งที่เขาเจอ</p>
+
+        <form class="optin" id="optin" novalidate>
+          <div class="f"><label for="f-name">ชื่อเล่น</label>
+          <input id="f-name" name="nickname" type="text" placeholder="เช่น ซัน" autocomplete="given-name" required></div>
+          <div class="f"><label for="f-email">อีเมล</label>
+          <input id="f-email" name="email" type="email" placeholder="อีเมลที่ใช้ประจำ" autocomplete="email" required></div>
+          <div class="f"><label for="f-role">ตอนนี้คุณทำงานด้านไหน</label>
+          <select id="f-role" name="role" required>
+            <option value="" selected disabled>เลือกอาชีพของคุณ</option>
+            <option>Content Writer / Freelance</option>
+            <option>Content Creator</option>
+            <option>นักการตลาด / Marketing</option>
+            <option>เจ้าของธุรกิจ</option>
+            <option>นักเรียน / นักศึกษา</option>
+            <option>อื่น ๆ</option>
+          </select></div>
+          <button class="btn" type="submit" id="submit">ส่ง E-book ให้ฉัน</button>
+          <label class="consent"><input type="checkbox" id="f-consent"> <span>ส่งเนื้อหา SEO และข้อเสนอสินค้าทางอีเมลให้ฉันด้วย ยกเลิกได้ทุกเมื่อ</span></label>
+          <p class="privacy-note">เราใช้อีเมลของคุณเพื่อส่ง E-book ตาม<a href="#privacy">นโยบายความเป็นส่วนตัว</a></p>
+          <div class="err" id="err" role="alert"></div>
+        </form>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>ฟรี 21 หน้า</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>จบเล่มได้บทความจริง 1 ชิ้น</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>มีเคสจริงและ Template ให้ใช้ทันที</li>
+        </ul>
+        <div class="done" id="done" tabindex="-1">
+          <h3 id="done-title">ส่งแล้ว เช็กอีเมลได้เลย</h3>
+          <p>E-book จะอยู่ในกล่องจดหมายภายในไม่กี่นาที ถ้าไม่เจอ ลองดูในโฟลเดอร์ Promotions หรือ Spam</p>
+          <a class="btn" id="dl" href="#" target="_blank" rel="noopener">ดาวน์โหลด E-book</a>
+          <div class="survey" id="survey">
+            <p class="sv-h">ระหว่างรอ ช่วยตอบ 2 ข้อสั้น ๆ ได้ไหม <span>(ไม่บังคับ)</span></p>
+            <fieldset><legend>รู้จักเราจากช่องทางไหน</legend><div class="opts" data-q="channel">
+              <button type="button">Facebook</button><button type="button">TikTok</button><button type="button">Instagram</button><button type="button">Google</button><button type="button">เพื่อนแนะนำ</button><button type="button">อื่น ๆ</button></div></fieldset>
+            <fieldset><legend>อยากได้อะไรจาก SEO มากที่สุด</legend><div class="opts" data-q="goal">
+              <button type="button">เข้าใจ SEO ทั้งระบบ</button><button type="button">เครื่องมือใช้ทำงานได้ทันที</button><button type="button">พัฒนาทีมในองค์กร</button><button type="button">แค่อยากลองศึกษาดูก่อน</button></div></fieldset>
+            <p class="sv-thanks" id="sv-thanks" hidden>ขอบคุณ คำตอบนี้ช่วยให้เราส่งเนื้อหาที่ตรงกับคุณมากขึ้น</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-stage" aria-hidden="true">
+        <div class="book">
+          <div class="cover">
+            <div class="brand">
+              <svg width="22" height="16" viewBox="0 0 30 22"><g stroke="#F47A2A" stroke-width="2.4" stroke-linecap="round"><path d="M15 2v3M6 5.5l2 2M24 5.5l-2 2"/></g><path d="M7 16a8 8 0 0 1 16 0z" fill="#F47A2A"/><path d="M3 19.5h24" stroke="#F47A2A" stroke-width="2.4" stroke-linecap="round"/></svg>
+              <span class="wm">SUNF<svg class="o" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7" fill="none" stroke="currentColor" stroke-width="3.2"/><path d="m15.6 15.6 5.4 5.4" stroke="#F47A2A" stroke-width="3.6" stroke-linecap="round"/></svg>UND <b>SEO</b></span>
+            </div>
+            <h2><span class="big">SEO</span>Starter Kit</h2>
+            <p class="sub">เริ่มเขียน <b>คอนเทนต์ให้คนค้นเจอ</b> ใน 6 ขั้น</p>
+            <div class="csearch"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>SEO Starter Kit | SUNFOUND SEO</span></div>
+            <div class="art">
+              <svg viewBox="0 0 280 150" width="100%" height="100%" preserveAspectRatio="xMidYMax meet">
+                <circle cx="92" cy="104" r="34" fill="#FFB23F"/>
+                <path d="M0 150 L70 86 L110 116 L170 48 L232 108 L280 76 L280 150 Z" fill="#8C857E"/>
+                <path d="M0 150 L40 112 L96 134 L150 92 L210 132 L280 104 L280 150 Z" fill="#4A4540"/>
+                <path d="M0 150 L60 130 L130 146 L200 124 L280 140 L280 150 Z" fill="#2A2724"/>
+                <path d="M28 66 L100 44 L140 56 L234 8" fill="none" stroke="#F47A2A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M211 7 L236 6 L231 30" fill="none" stroke="#F47A2A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="tags"><span>SEO Starter Kit | SUNFOUND SEO</span><span class="pg">01 / 21</span></div>
+          </div>
+          <div class="page-edge"></div>
+          <div class="free"><span>ฟรี</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Content ที่ดี อาจไม่มีใครเห็น ถ้าไม่มีใครค้นเจอ</h2>
+        <p>ถ้าคุณเคยรู้สึกแบบนี้ E-book เล่มนี้เขียนมาเพื่อคุณ</p>
+      </div>
+      <div class="pains">
+        <div class="pain"><q>เขียนตั้งนาน แต่ยอดคนอ่านแทบไม่ขยับ</q><p>เพราะเริ่มจาก “วันนี้จะเขียนอะไรดี” แทนที่จะเริ่มจาก “คนกำลังค้นหาอะไร”</p></div>
+        <div class="pain"><q>หยุดยิง Ads เมื่อไหร่ ยอดก็หายเมื่อนั้น</q><p>การมองเห็นที่ต้องซื้อตลอดเวลา จะหยุดทันทีที่งบหมด SEO คือการสร้างทางให้คนเจอคุณเองในระยะยาว</p></div>
+        <div class="pain"><q>อยากเริ่มทำ SEO แต่ศัพท์เยอะจนไม่รู้เริ่มตรงไหน</q><p>คุณไม่ต้องรู้ทุกศัพท์ แค่ต้องมีลำดับขั้นที่ชัด แล้วลงมือทำทีละขั้น</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>ในเล่มมีอะไร</h2>
+        <p>21 หน้า ทำตามทีละขั้นกับบทความจริงของคุณ อ่านจบแล้วได้บทความ 1 ชิ้นที่วางแผนครบทุกขั้น</p>
+      </div>
+      <ol class="steps">
+        <li><div><h3>เริ่มจากสิ่งที่คนค้นหา</h3><p>หา Keyword ฟรีจาก 4 แหล่ง และถาม 3 ข้อก่อนเลือกคำที่ธุรกิจควรเขียนจริง</p></div></li>
+        <li><div><h3>อ่านใจคนค้นให้ออก</h3><p>Search Intent 4 แบบ คนพิมพ์คำนี้อยากรู้ อยากเปรียบเทียบ หรือพร้อมซื้อ</p></div></li>
+        <li><div><h3>ส่อง Google ก่อนลงมือเขียน</h3><p>สังเกต 5 อย่างในหน้าผลการค้นหา แล้วหาช่องว่างที่ยังไม่มีใครเติม</p></div></li>
+        <li><div><h3>วางโครง Content Brief</h3><p>Brief 10 ช่อง พร้อมตัวอย่างที่กรอกแล้ว และหน้าว่างให้กรอกของคุณเอง</p></div></li>
+        <li><div><h3>เช็ก On-page ก่อนกดโพสต์</h3><p>Checklist 11 ข้อ พร้อมตัวอย่าง Title และ Meta แบบไหนคนอยากกด</p></div></li>
+        <li><div><h3>วัดผลแล้วปรับให้ดีขึ้น</h3><p>ตัวเลข 4 ตัวใน Search Console และตารางวินิจฉัยว่าอาการไหน แก้ตรงไหน</p></div></li>
+      </ol>
+      <div class="extras">
+        <p class="extras-h">นอกจาก 6 ขั้น ในเล่มยังมี</p>
+        <ul>
+          <li><b>เคสจากงานจริง</b><span>สถานการณ์ที่เจอบ่อยในงาน Agency แทบทุกขั้น</span></li>
+          <li><b>ตัวอย่างที่กรอกแล้ว</b><span>ดูเป็นแนวทางก่อนลงมือทำของตัวเอง</span></li>
+          <li><b>5 ข้อผิดพลาดมือใหม่</b><span>พร้อมวิธีทำที่ถูกแทน</span></li>
+          <li><b>Checklist หน้าเดียว</b><span>สรุปทั้ง 6 ขั้น ปริ้นติดโต๊ะได้</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="sec-head"><h2>เหมาะกับใคร</h2></div>
+      <div class="who">
+        <article>
+          <h3>คนทำ Content</h3>
+          <p class="from">Content Writer, Creator, Freelancer หรือนักการตลาดมือใหม่ ที่เขียน Content เป็น แต่ยังไม่เข้าใจ SEO</p>
+          <span class="arrow" aria-hidden="true">↓</span>
+          <p class="to">คิดและเขียน Content แบบ SEO ได้อย่างเป็นระบบ ตรวจงานตัวเองได้ และรู้ว่าทำไมบทความถึงไม่ติด</p>
+        </article>
+        <article>
+          <h3>ทีมในองค์กร</h3>
+          <p class="from">เจ้าของธุรกิจ ทีม Marketing หรือทีม Content ที่ต้องพึ่ง Agency เพราะคนในทีมยังไม่รู้จะเริ่มอย่างไร</p>
+          <span class="arrow" aria-hidden="true">↓</span>
+          <p class="to">ทีมมีพื้นฐาน SEO ร่วมกัน ทำงานพื้นฐานได้เอง และคุยกับ Agency ได้รู้เรื่องขึ้น</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <img class="photo" src="data:image/jpeg;base64,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" alt="คุณซัน Content Marketer &amp; SEO Writer" width="240" height="240">
+      <div>
+        <blockquote>“ถ้าเงินค่า Ads หมด การมองเห็นก็หยุดด้วยหรือเปล่า?”</blockquote>
+        <div class="story">
+          <p>คำถามนี้คือจุดเริ่มต้นที่ทำให้เราเริ่มศึกษา SEO ด้วยตัวเอง ลองผิด แก้ ทำจริง วิเคราะห์ผล แล้วเรียนรู้เพิ่ม จนได้ใช้ทำงานให้ลูกค้าจริงใน Agency</p>
+          <p>สิ่งที่ได้เรียนรู้คือ SEO ไม่ใช่การเขียนบทความให้ Google อ่าน แต่คือการเข้าใจว่าคนกำลังค้นหาอะไร แล้วสร้างคำตอบที่มีคุณค่าทั้งต่อคนอ่านและต่อธุรกิจ E-book เล่มนี้คือการย่อสิ่งที่เราใช้จริงทุกวัน ให้คนที่เพิ่งเริ่มทำตามได้</p>
+        </div>
+        <p class="sig">คุณซัน<span class="title-r">Content Marketer &amp; SEO Writer</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>เลือกเครื่องมือที่เหมาะกับคุณ</h2>
+        <p>เริ่มจาก E-book ฟรี แล้วต่อยอดด้วยคู่มือฉบับเต็มและ Template ที่ใช้ทำงานได้ทันที</p>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="กรองตามหมวด"></div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>ยังไม่มีสินค้าในหมวดนี้ ลองเลือกหมวดอื่น</p>
+    </div>
+  </section>
+
+
+  <dialog id="pd" aria-labelledby="pd-title">
+    <div class="pd-body">
+      <button class="pd-close" type="button" aria-label="ปิด"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="pd-art"></div>
+      <div class="pd-main">
+        <span class="pd-cat"></span>
+        <h3 id="pd-title"></h3>
+        <p class="pd-desc"></p>
+        <div class="pd-price"></div>
+        <div class="pd-groups" hidden></div>
+        <h4 class="pd-inc-h">สิ่งที่คุณจะได้รับ</h4>
+        <ul class="pd-inc"></ul>
+        <p class="pd-note" hidden></p>
+        <div class="pd-toc" hidden><h4>สารบัญ</h4><ol></ol></div>
+        <dl class="pd-meta">
+          <dt>รูปแบบ</dt><dd class="pd-format"></dd>
+          <dt>เหมาะกับ</dt><dd class="pd-for"></dd>
+        </dl>
+      </div>
+      <div class="pd-foot">
+        <a class="btn pd-buy" target="_blank" rel="noopener"></a>
+        <p>ชำระเงินผ่าน Stripe ได้รับไฟล์ทางอีเมลหลังชำระเงิน</p>
+      </div>
+    </div>
+  </dialog>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="rv-head">
+        <div class="sec-head">
+          <h2>คนที่ลองใช้แล้วพูดว่าอะไร</h2>
+          <p>จากคนทำ Content ไปจนถึงทีมการตลาดในองค์กร</p>
+          <span class="sample-note" id="sample-note" hidden>รีวิวด้านล่างเป็นตัวอย่างเพื่อดูดีไซน์</span>
+        </div>
+        <div class="rv-nav">
+          <button type="button" id="rv-prev" aria-label="รีวิวก่อนหน้า"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+          <button type="button" id="rv-next" aria-label="รีวิวถัดไป"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="track" id="track" tabindex="0" aria-label="รีวิวจากผู้ใช้ เลื่อนซ้ายขวาได้"></div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2>คำถามที่พบบ่อย</h2></div>
+      <div class="faq">
+        <details><summary>ไม่มีพื้นฐาน SEO เลย อ่านเข้าใจไหม</summary><p>เข้าใจได้ เล่มนี้เขียนสำหรับคนที่เริ่มจากศูนย์ ทุกศัพท์เทคนิคมีคำอธิบายภาษาคน และมีตัวอย่างประกอบทุกขั้น</p></details>
+        <details><summary>ต้องใช้เครื่องมือที่ต้องจ่ายเงินไหม</summary><p>ไม่ต้องเลย ทุกขั้นในเล่มทำได้ด้วยเครื่องมือฟรี เช่น Google Search และ Google Search Console</p></details>
+        <details><summary>ใช้กับธุรกิจเล็ก หรือร้านออนไลน์ได้ไหม</summary><p>ได้แน่นอน หลักคิดเดียวกันใช้ได้ทั้งบล็อกส่วนตัว เว็บบริษัท และร้านค้าออนไลน์ สิ่งที่ต่างคือ Keyword ที่คุณเลือก</p></details>
+        <details><summary>ได้รับ E-book อย่างไร</summary><p>กรอกชื่อและอีเมลด้านบน ลิงก์ดาวน์โหลดจะส่งไปที่อีเมลของคุณ และจะได้รับเนื้อหา SEO ดี ๆ ต่อเนื่อง ยกเลิกรับได้ทุกเมื่อ</p></details>
+        <details><summary>มีคอร์สวิดีโอหรือคลาสสอนไหม</summary><p>ไม่มี ทุกอย่างที่นี่ออกแบบมาให้อ่านแล้วทำตามได้เอง ไม่ต้องนั่งดูคลิป ไม่ต้องนัดเวลาเรียน เปิด Handbook หรือ Template แล้วใช้กับงานจริงได้ทันที</p></details>
+        <details><summary>ซื้อให้ทั้งทีมในบริษัทใช้ได้ไหม</summary><p>ได้ เลือก Team License ทีมจะได้ Handbook และ Template ชุดเดียวกัน พร้อมแบบฝึกหัดและเฉลยให้ฝึกเอง สอบถามเพิ่มเติมได้ที่ [อีเมลหรือ LINE OA ของคุณ]</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final alt">
+    <div class="wrap">
+      <h2>บทความถัดไปของคุณ ควรมีคนค้นเจอ</h2>
+      <p>รับ SEO Starter Kit ฟรี แล้วเริ่มจากขั้นแรกได้วันนี้</p>
+      <a class="btn" href="#get">รับ E-book ฟรี</a>
+    </div>
+  </section>
+</main>
+
+
+<dialog id="privacy" class="legal" aria-labelledby="pv-title">
+  <div class="lg-body">
+    <button class="pd-close lg-close" type="button" aria-label="ปิด"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <h2 id="pv-title">นโยบายความเป็นส่วนตัว</h2>
+    <p class="lg-date">มีผลตั้งแต่วันที่ [9 ตุลาคม 2569]</p>
+    <p>SUNFOUND SEO ให้ความสำคัญกับข้อมูลส่วนบุคคลของคุณ นโยบายนี้อธิบายว่าเราเก็บข้อมูลอะไร ใช้เพื่ออะไร ส่งต่อให้ใคร เก็บไว้นานแค่ไหน และคุณมีสิทธิอะไรบ้าง ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</p>
+
+    <h3>1. ผู้ควบคุมข้อมูลส่วนบุคคล</h3>
+    <p>[ชื่อ-นามสกุล หรือชื่อธุรกิจ] ในนาม SUNFOUND SEO ติดต่อได้ที่ [อีเมลติดต่อ]</p>
+
+    <h3>2. ข้อมูลที่เราเก็บ</h3>
+    <p><b>ข้อมูลที่คุณกรอกเอง:</b> ชื่อเล่น อีเมล อาชีพ และคำตอบแบบสอบถามที่คุณเลือกตอบ เช่น ช่องทางที่รู้จักเราและเป้าหมายด้าน SEO</p>
+    <p><b>ข้อมูลที่เก็บโดยอัตโนมัติ:</b> ช่องทางที่พาคุณมายังเว็บไซต์ เช่น ค่า UTM ในลิงก์ และเว็บไซต์ต้นทาง รวมถึงการตั้งค่าโหมดสว่างหรือมืดที่บันทึกไว้ในเบราว์เซอร์ของคุณเอง</p>
+    <p><b>ข้อมูลการสั่งซื้อ:</b> เมื่อคุณซื้อสินค้า การชำระเงินดำเนินการโดย Stripe เราได้รับชื่อ อีเมล รายการสินค้า และสถานะการชำระเงิน เราไม่ได้รับและไม่เก็บเลขบัตรของคุณ</p>
+
+    <h3>3. เราใช้ข้อมูลเพื่ออะไร</h3>
+    <ul>
+      <li><b>ส่ง E-book และสินค้าที่คุณซื้อ</b> เพื่อทำตามคำขอหรือสัญญาซื้อขายกับคุณ</li>
+      <li><b>ส่งเนื้อหา SEO ข่าวสาร และข้อเสนอสินค้าทางอีเมล</b> โดยอาศัยความยินยอมของคุณ ซึ่งถอนได้ทุกเมื่อ</li>
+      <li><b>วิเคราะห์ว่าช่องทางไหนได้ผล และเลือกเนื้อหาให้ตรงกับคุณ</b> โดยอาศัยประโยชน์โดยชอบด้วยกฎหมายในการปรับปรุงบริการ</li>
+      <li><b>ออกใบเสร็จและบันทึกทางบัญชี</b> เพื่อปฏิบัติตามกฎหมายบัญชีและภาษี</li>
+    </ul>
+
+    <h3>4. เราส่งต่อข้อมูลให้ใคร</h3>
+    <p>เราไม่ขายข้อมูลของคุณ เราส่งต่อข้อมูลเท่าที่จำเป็นให้ผู้ให้บริการที่ช่วยเราดำเนินงานเท่านั้น ได้แก่ Stripe (ชำระเงิน), [ชื่อระบบอีเมล] (ส่งอีเมล), [Make / Zapier / n8n] (ระบบอัตโนมัติ) และ Google (จัดเก็บข้อมูล) ผู้ให้บริการบางรายมีเซิร์ฟเวอร์อยู่นอกประเทศไทย ซึ่งมีมาตรการคุ้มครองข้อมูลตามมาตรฐานของผู้ให้บริการนั้น</p>
+
+    <h3>5. เราเก็บข้อมูลนานแค่ไหน</h3>
+    <ul>
+      <li><b>ข้อมูลสำหรับส่งอีเมล:</b> เก็บจนกว่าคุณจะยกเลิกรับอีเมลหรือขอให้ลบ</li>
+      <li><b>ข้อมูลการสั่งซื้อ:</b> เก็บตามระยะเวลาที่กฎหมายบัญชีและภาษีกำหนด</li>
+      <li><b>คำตอบแบบสอบถามและข้อมูลช่องทาง:</b> เก็บไม่เกิน [2 ปี] นับจากครั้งสุดท้ายที่คุณติดต่อกับเรา</li>
+    </ul>
+
+    <h3>6. สิทธิของคุณ</h3>
+    <p>คุณมีสิทธิขอเข้าถึงและขอสำเนาข้อมูล ขอให้แก้ไขข้อมูลให้ถูกต้อง ขอให้ลบหรือระงับการใช้ข้อมูล คัดค้านการใช้ข้อมูล ขอรับข้อมูลในรูปแบบที่โอนย้ายได้ และถอนความยินยอมได้ทุกเมื่อ ส่งคำขอได้ที่ [อีเมลติดต่อ] เราจะตอบกลับภายใน 30 วัน หากเห็นว่าเราไม่ปฏิบัติตามกฎหมาย คุณร้องเรียนต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคลได้</p>
+    <p>ยกเลิกรับอีเมลได้ง่ายที่สุดจากลิงก์ "ยกเลิกการรับอีเมล" ท้ายอีเมลทุกฉบับ</p>
+
+    <h3>7. การรักษาความปลอดภัย</h3>
+    <p>เราจำกัดการเข้าถึงข้อมูลเฉพาะผู้ที่จำเป็น และใช้บริการที่มีมาตรฐานความปลอดภัย หากเกิดเหตุละเมิดข้อมูลที่มีความเสี่ยงต่อคุณ เราจะแจ้งให้คุณและหน่วยงานที่เกี่ยวข้องทราบตามที่กฎหมายกำหนด</p>
+
+    <h3>8. ผู้เยาว์</h3>
+    <p>หากคุณยังไม่บรรลุนิติภาวะ โปรดให้ผู้ปกครองรับทราบและให้ความยินยอมก่อนกรอกข้อมูล</p>
+
+    <h3>9. การเปลี่ยนแปลงนโยบาย</h3>
+    <p>หากเราปรับปรุงนโยบายนี้ เราจะแก้วันที่มีผลด้านบน และหากเป็นการเปลี่ยนแปลงสำคัญ เช่น ใช้ข้อมูลเพื่อวัตถุประสงค์ใหม่ เราจะแจ้งคุณทางอีเมลก่อน</p>
+  </div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span>SUNFOUND SEO  เขียนให้คนอ่าน เจอให้คนค้นหา</span>
+    <span><a href="#privacy">นโยบายความเป็นส่วนตัว</a>  © 2026 คุณซัน</span>
+  </div>
+</footer>
+
+<script>
+/* ===== ตั้งค่าตรงนี้ก่อนนำไปใช้จริง =====
+   LEAD_ENDPOINT : URL ที่รับข้อมูลฟอร์ม (เช่น Google Apps Script, MailerLite, ConvertKit, Formspree)
+   EBOOK_URL     : ลิงก์ไฟล์ PDF ของ E-book (เช่น Google Drive แบบแชร์ลิงก์)               */
+const LEAD_ENDPOINT = "";
+const EBOOK_URL = "";
+
+/* theme */
+const root = document.documentElement;
+try { const t = localStorage.getItem("sf-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById("theme").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("sf-theme", root.dataset.theme); } catch (e) {}
+});
+
+/* typed search query (one moment, then rests) */
+(function () {
+  const el = document.getElementById("typed");
+  const qs = ["ทำ SEO เองได้ไหม", "เขียนบทความยังไงให้ติด Google", "keyword research คืออะไร"];
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = qs[0]; return; }
+  let qi = 0, ci = 0, del = false;
+  (function tick() {
+    const q = qs[qi];
+    el.textContent = q.slice(0, ci);
+    if (!del && ci < q.length) { ci++; return setTimeout(tick, 85); }
+    if (!del) { del = true; return setTimeout(tick, 2200); }
+    if (ci > 0) { ci--; return setTimeout(tick, 35); }
+    del = false; qi = (qi + 1) % qs.length; setTimeout(tick, 400);
+  })();
+})();
+
+/* ===== สินค้า: แก้ชื่อ ราคา และลิงก์ Stripe Payment Link ได้ตรงนี้ =====
+   link ว่าง = ปุ่มขึ้นว่า "เร็ว ๆ นี้"   price 0 = ฟรี (พาไปที่ฟอร์ม)   feature: true = การ์ดใหญ่ */
+const PRODUCTS = [
+  { name: "SEO Writing Handbook", cat: "E-book", price: 890, link: "", badge: "ตัวหลัก", feature: true, dark: true,
+    desc: "คู่มือฉบับเต็ม 13 บท ตั้งแต่ Keyword, Search Intent, SERP ไปจนถึงวัดผลและเชื่อม SEO กับยอดขาย",
+    format: "E-book PDF อ่านได้ทั้งมือถือ แท็บเล็ต และคอมพิวเตอร์",
+    forWho: "Content Writer, Creator และ Freelancer ที่อยากเข้าใจ SEO ทั้งระบบ ไม่ใช่แค่จำเทคนิค",
+    includes: ["เนื้อหา 13 บท เรียงตาม Workflow ที่ใช้ทำงานจริง", "ตัวอย่างจากงานจริงใน Agency ประกอบทุกบท", "แบบฝึกหัดท้ายบท ลองทำกับเว็บของตัวเองได้ทันที", "อัปเดตฟรีเมื่อมีฉบับปรับปรุง"],
+    toc: ["SEO Mindset", "Keyword Research", "Search Intent", "SERP Analysis", "Content Planning", "Content Brief", "SEO Writing", "On-page SEO", "Content Quality", "Search Features และ AI Overview", "Measurement", "Optimization", "SEO × Business"] },
+  { name: "SEO Workflow Bundle", cat: "ชุดรวม", price: 1490, was: 1680, link: "", badge: "คุ้มสุด",
+    desc: "Handbook ฉบับเต็มคู่กับ SEO Content Toolkit ครบทั้งความรู้และเครื่องมือ ตั้งแต่หา Keyword จนถึงวัดผล",
+    format: "E-book PDF, Google Sheets, Google Docs และ PDF พร้อมพิมพ์",
+    forWho: "คนที่อยากได้ทั้งความเข้าใจและเครื่องมือ ใช้ทำงานจริงได้ตั้งแต่วันแรก",
+    includes: ["SEO Writing Handbook ฉบับเต็ม 13 บท", "SEO Content Toolkit ครบ 5 ชิ้น (Keyword Research, Search Intent, Content Brief, Article Checklist, Content Audit)", "ประหยัดกว่าซื้อแยก 190 บาท", "อัปเดตฟรีทั้งชุด"] },
+  { name: "SEO Content Toolkit", cat: "เครื่องมือ", price: 790, link: "", badge: "เครื่องมือ 5 ชิ้น",
+    desc: "Template ครบ 5 ชิ้น จัดเป็นชุดตามขั้นตอนการทำงาน วางแผน เขียน และปรับปรุงบทความ",
+    format: "Google Sheets, Google Docs และ PDF พร้อมพิมพ์",
+    forWho: "คนที่เข้าใจ SEO พื้นฐานแล้ว และอยากได้เครื่องมือมาทำงานให้เป็นระบบ",
+    groups: [
+      { title: "วางแผน: รู้ว่าควรเขียนอะไร", items: [
+        ["Keyword Research Template", "ตารางเก็บและคัด Keyword พร้อมสูตรจัดลำดับความสำคัญอัตโนมัติ"],
+        ["Search Intent Worksheet", "อ่าน Intent 4 แบบ และวิเคราะห์ 3 อันดับแรกใน Google"] ] },
+      { title: "เขียน: ลงมือให้ครบ ไม่พลาด", items: [
+        ["Content Brief Template", "วางโครงบทความ 10 หัวข้อ ตั้งแต่ Keyword ถึง CTA"],
+        ["SEO Article Checklist", "เช็ก On-page 3 ช่วง ก่อนเขียน ระหว่างเขียน และก่อนเผยแพร่"] ] },
+      { title: "ปรับปรุง: ทำให้บทความเก่าดีขึ้น", items: [
+        ["SEO Content Audit Template", "วางข้อมูลจาก Search Console แล้วตัดสินใจ ปรับ รวม หรือลบ"] ] }
+    ],
+    includes: ["ตัวอย่างที่กรอกแล้วทุกไฟล์", "วิธีใช้ทีละขั้นในแต่ละไฟล์", "อัปเดตฟรีเมื่อมีเวอร์ชันใหม่"] },
+  { name: "SEO Starter Kit", cat: "E-book", price: 0, badge: "ฟรี",
+    desc: "E-book ฟรี 21 หน้า เริ่มเขียนคอนเทนต์ให้คนค้นเจอใน 6 ขั้น พร้อมเคสจริงและ Checklist" },
+  { name: "Team License", cat: "สำหรับทีม", price: 4990, unit: "/ ทีม 5 คน", link: "",
+    desc: "Handbook และ Template ทั้งหมดให้ทีมใช้ร่วมกัน พร้อมแบบฝึกหัดและเฉลย ให้ทีมฝึกเองได้โดยไม่ต้องเข้าคลาส",
+    format: "E-book PDF และ Template สำหรับใช้ร่วมกันทั้งทีม",
+    forWho: "ทีม Content หรือ Marketing ที่อยากมีพื้นฐาน SEO และมาตรฐานการทำงานเดียวกัน",
+    includes: ["Handbook และ Toolkit ครบ 5 ชิ้น สำหรับ 5 คน", "แบบฝึกหัดสำหรับทีมพร้อมเฉลย", "Brief และ Checklist มาตรฐานเดียวกันทั้งทีม", "ออกใบเสร็จในนามบริษัทได้", "มากกว่า 5 คน ติดต่อเพื่อรับราคาพิเศษ"] }
+];
+
+/* ===== ภาพสินค้า (วาดด้วย SVG) จับคู่กับชื่อสินค้า ถ้ามีภาพจริง เปลี่ยนเป็น <img> ได้ ===== */
+const K = { o:"#F47A2A", ink:"#1E1C1A", dk:"#2A2724", mt:"#4A4540", ln:"#E6E0D8", pap:"#FFFDF9", sun:"#FFB23F", mu:"#9A9189", tint:"#FFE9DA" };
+const FONT = 'font-family="Anuphan, sans-serif"';
+const svgWrap = (inner, vb = "40 0 240 180") => `<svg viewBox="${vb}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${inner}</svg>`;
+function book(x, y, w, h, lines, o = {}) {
+  const cover = o.cover || K.pap, ink = o.ink || K.ink, fs = Math.round(w * 0.13);
+  const t = o.bigFirst
+    ? `<text x="${x + 12}" y="${y + 50}" ${FONT} font-weight="700" font-size="${fs * 2.1}" fill="${K.o}">${lines[0]}</text>` + lines.slice(1).map((s, i) => `<text x="${x + 13}" y="${y + 66 + i * (fs + 3)}" ${FONT} font-weight="700" font-size="${fs}" fill="${ink}">${s}</text>`).join("")
+    : lines.map((s, i) => `<text x="${x + 13}" y="${y + 42 + i * (fs + 3)}" ${FONT} font-weight="700" font-size="${fs}" fill="${ink}">${s}</text>`).join("");
+  return `<g transform="rotate(${o.rot || 0} ${x + w / 2} ${y + h / 2})">
+<rect x="${x + 5}" y="${y + 7}" width="${w}" height="${h}" rx="3" fill="rgba(0,0,0,.22)"/>
+<rect x="${x + w - 2}" y="${y + 3}" width="6" height="${h - 6}" fill="#EEE8DF"/>
+<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${cover}" stroke="${o.cover ? "none" : K.ln}"/>
+<rect x="${x}" y="${y}" width="5" height="${h}" fill="rgba(0,0,0,.12)"/>
+<path d="M${x + 13} ${y + 22}a6 6 0 0 1 12 0z" fill="${o.logo || K.o}"/>
+${t}
+<svg x="${x}" y="${y + h * 0.58}" width="${w}" height="${h * 0.42}" viewBox="0 0 100 50" preserveAspectRatio="none">
+<circle cx="34" cy="32" r="12" fill="${K.sun}"/>
+<path d="M0 50 L26 28 L42 40 L66 16 L86 34 L100 26 L100 50Z" fill="${o.mt || K.dk}"/>
+<path d="M10 30 L36 22 L48 26 L84 6" fill="none" stroke="${o.arrow || K.o}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></g>`;
+}
+function paper(x, y, w, h, title, inner, rot = 0) {
+  return `<g transform="rotate(${rot} ${x + w / 2} ${y + h / 2})"><rect x="${x + 4}" y="${y + 6}" width="${w}" height="${h}" rx="6" fill="rgba(0,0,0,.14)"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="#FFFFFF" stroke="${K.ln}"/>${title ? `<text x="${x + 12}" y="${y + 22}" ${FONT} font-weight="700" font-size="11" fill="${K.ink}">${title}</text>` : ""}${inner}</g>`;
+}
+function grid(x, y, w, h, cols = 4, rows = 5) {
+  let s = `<rect x="${x}" y="${y}" width="${w}" height="11" rx="2" fill="${K.o}"/>`; const rh = (h - 11) / rows;
+  for (let r = 1; r <= rows; r++) s += `<line x1="${x}" x2="${x + w}" y1="${y + 11 + r * rh}" y2="${y + 11 + r * rh}" stroke="${K.ln}"/>`;
+  for (let c = 1; c < cols; c++) s += `<line x1="${x + c * w / cols}" x2="${x + c * w / cols}" y1="${y}" y2="${y + h}" stroke="${K.ln}"/>`;
+  for (let r = 0; r < rows; r++) s += `<rect x="${x + 4}" y="${y + 11 + r * rh + rh / 2 - 2.5}" width="${w / cols - 10}" height="5" rx="2.5" fill="${r % 3 === 0 ? K.tint : "#EEE8DF"}"/>`;
+  return s;
+}
+function checks(x, y, w, n, done, gap = 15) {
+  let s = "";
+  for (let i = 0; i < n; i++) {
+    const yy = y + i * gap;
+    s += i < done
+      ? `<rect x="${x}" y="${yy}" width="10" height="10" rx="2" fill="${K.o}"/><path d="M${x + 2.5} ${yy + 5}l2 2 3.5-4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>`
+      : `<rect x="${x + .5}" y="${yy + .5}" width="9" height="9" rx="2" fill="none" stroke="${K.ink}"/>`;
+    s += `<rect x="${x + 16}" y="${yy + 3}" width="${(w - 16) * (0.55 + 0.45 * ((i * 37) % 10) / 10)}" height="4" rx="2" fill="#E6E0D8"/>`;
+  }
+  return s;
+}
+function fields(x, y, w, n, gap = 22) {
+  let s = "";
+  for (let i = 0; i < n; i++) { const yy = y + i * gap; s += `<rect x="${x}" y="${yy}" width="${w * 0.35}" height="4" rx="2" fill="${K.mu}"/><line x1="${x}" x2="${x + w}" y1="${yy + 15}" y2="${yy + 15}" stroke="#CFC7BD"/>`; }
+  return s;
+}
+function audit(x, y, w, n, gap = 16) {
+  const cs = [K.o, K.dk, "#CFC7BD"]; let s = "";
+  for (let i = 0; i < n; i++) { const yy = y + i * gap; s += `<circle cx="${x + 5}" cy="${yy + 4}" r="4" fill="${cs[i % 3]}"/><rect x="${x + 16}" y="${yy + 2}" width="${w * 0.45}" height="4" rx="2" fill="#E6E0D8"/><rect x="${x + w * 0.68}" y="${yy}" width="${w * 0.32 * (0.4 + ((i * 53) % 10) / 16)}" height="8" rx="2" fill="${K.tint}"/>`; }
+  return s;
+}
+function intent(x, y, w) {
+  let s = `<rect x="${x}" y="${y}" width="${w}" height="16" rx="8" fill="none" stroke="${K.ln}" stroke-width="1.5"/><circle cx="${x + 10}" cy="${y + 7.5}" r="3.2" fill="none" stroke="${K.ink}" stroke-width="1.4"/><path d="M${x + 12.4} ${y + 9.9}l3 3" stroke="${K.o}" stroke-width="1.8" stroke-linecap="round"/><rect x="${x + 20}" y="${y + 6}" width="${w * 0.45}" height="4" rx="2" fill="#E6E0D8"/>`;
+  const bw = (w - 8) / 2, bh = 36;
+  ["อยากรู้", "เปรียบเทียบ", "ไปที่ใด", "ลงมือ"].forEach((t, i) => {
+    const bx = x + (i % 2) * (bw + 8), by = y + 24 + Math.floor(i / 2) * (bh + 8);
+    s += `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="5" fill="${i === 3 ? K.tint : "#F6F3EF"}"/><text x="${bx + 7}" y="${by + 15}" ${FONT} font-weight="600" font-size="9" fill="${K.ink}">${t}</text><rect x="${bx + 7}" y="${by + 22}" width="${bw * 0.6}" height="3.5" rx="1.75" fill="#DCD4CA"/>`;
+  });
+  return s;
+}
+const ORANGE_BOOK = { cover: K.o, ink: K.ink, arrow: "#FFFFFF", logo: K.ink };
+const ART = {
+  "SEO Writing Handbook": () => svgWrap(paper(40, 44, 92, 112, "", grid(50, 56, 72, 88), -8) + paper(188, 44, 92, 112, "", checks(198, 58, 72, 6, 3), 8) + book(115, 22, 90, 130, ["SEO Writing", "Handbook"], ORANGE_BOOK), "0 0 320 180"),
+  "SEO Starter Kit": () => svgWrap(book(115, 24, 90, 128, ["SEO", "Starter Kit"], { bigFirst: true, mt: "#8C857E" })),
+  "SEO Content Toolkit": () => svgWrap(paper(84, 42, 108, 120, "", grid(94, 54, 88, 96), -7) + paper(108, 34, 108, 124, "", fields(118, 48, 88, 5), -1) + paper(130, 26, 108, 128, "SEO Toolkit", checks(142, 62, 84, 5, 2, 16), 5)),
+  "Content Brief Template": () => svgWrap(paper(95, 16, 130, 150, "Content Brief", fields(107, 46, 106, 5))),
+  "Keyword Research Template": () => svgWrap(paper(60, 24, 200, 132, "Keyword Research", grid(72, 54, 176, 90))),
+  "Search Intent Worksheet": () => svgWrap(paper(80, 16, 160, 148, "Search Intent", intent(92, 46, 136))),
+  "SEO Article Checklist": () => svgWrap(paper(100, 14, 120, 154, "Article Checklist", checks(112, 48, 96, 7, 4))),
+  "SEO Content Audit Template": () => svgWrap(paper(80, 18, 160, 144, "Content Audit", audit(92, 52, 136, 6))),
+  "SEO Workflow Bundle": () => svgWrap(paper(148, 38, 112, 122, "", grid(158, 50, 92, 98), 7) + book(78, 24, 90, 130, ["SEO Writing", "Handbook"], ORANGE_BOOK)),
+  "Team License": () => svgWrap(book(52, 38, 80, 114, ["Handbook"], { rot: -12 }) + book(188, 38, 80, 114, ["Templates"], { ...ORANGE_BOOK, rot: 10 }) + book(116, 22, 88, 128, ["Team", "License"], { cover: K.dk, ink: "#F4F1ED", mt: K.mt, logo: K.o }))
+};
+
+const fmt = n => n.toLocaleString("th-TH") + " บาท";
+const priceText = p => p.price === 0 ? "ฟรี" : fmt(p.price) + (p.unit ? " " + p.unit : "");
+function openDetail(p) {
+  const d = document.getElementById("pd");
+  const q = s => d.querySelector(s);
+  const art = ART[p.name];
+  q(".pd-art").innerHTML = art ? art() : "";
+  q(".pd-art").classList.toggle("dark", !!p.dark);
+  q(".pd-cat").textContent = p.cat;
+  q("#pd-title").textContent = p.name;
+  q(".pd-desc").textContent = p.desc;
+  const pr = q(".pd-price"); pr.textContent = priceText(p);
+  if (p.was) { const w = document.createElement("s"); w.className = "was"; w.textContent = fmt(p.was); pr.prepend(w); }
+  const ul = q(".pd-inc"); ul.textContent = "";
+  (p.includes || []).forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.append(li); });
+  const nt = q(".pd-note"); nt.textContent = p.note || ""; nt.hidden = !p.note;
+  q(".pd-inc-h").textContent = p.groups ? "ได้รับเพิ่มทุกไฟล์" : "สิ่งที่คุณจะได้รับ";
+  const gw = q(".pd-groups"); gw.textContent = ""; gw.hidden = !p.groups;
+  if (p.groups) {
+    const head = document.createElement("h4"); head.textContent = "เครื่องมือในชุด จัดตามขั้นตอนการทำงาน"; gw.append(head);
+    p.groups.forEach(g => {
+      const box = document.createElement("div"); box.className = "pd-group";
+      const t = document.createElement("div"); t.className = "pd-gt"; t.textContent = g.title; box.append(t);
+      g.items.forEach(([n, d]) => { const it = document.createElement("div"); it.className = "pd-gi"; const b = document.createElement("b"); b.textContent = n; const sp = document.createElement("span"); sp.textContent = d; it.append(b, sp); box.append(it); });
+      gw.append(box);
+    });
+  }
+  q(".pd-format").textContent = p.format || "";
+  q(".pd-for").textContent = p.forWho || "";
+  const toc = q(".pd-toc"), tl = q(".pd-toc ol"); tl.textContent = "";
+  toc.hidden = !p.toc;
+  (p.toc || []).forEach(t => { const li = document.createElement("li"); li.textContent = t; tl.append(li); });
+  const b = q(".pd-buy");
+  if (p.link) { b.textContent = "ซื้อเลย " + fmt(p.price); b.href = p.link; b.removeAttribute("aria-disabled"); }
+  else { b.textContent = "เปิดขายเร็ว ๆ นี้"; b.removeAttribute("href"); b.setAttribute("aria-disabled", "true"); }
+  d.showModal();
+  q(".pd-body").scrollTop = 0;
+}
+document.getElementById("pd").addEventListener("click", e => { if (e.target.id === "pd" || e.target.closest(".pd-close")) e.currentTarget.close(); });
+
+(function shop() {
+  const cats = ["ทั้งหมด", ...new Set(PRODUCTS.map(p => p.cat))];
+  const chips = document.getElementById("chips");
+  const grid = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+  let active = "ทั้งหมด";
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+  function render() {
+    chips.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.cat === active));
+    grid.textContent = "";
+    const list = PRODUCTS.filter(p => active === "ทั้งหมด" || p.cat === active);
+    empty.hidden = list.length > 0;
+    list.forEach(p => {
+      const card = el("article", "card" + (p.feature && active === "ทั้งหมด" ? " feature" : ""));
+      const th = el("div", "thumb" + (p.dark ? " dark" : ""));
+      const art = ART[p.name];
+      if (art) { th.classList.add("art"); th.innerHTML = art(); }
+      else { th.append(el("span", "sun"), el("span", "kind", p.name)); }
+      if (p.badge) th.append(el("span", "badge", p.badge));
+      const body = el("div", "body");
+      body.append(el("span", "cat", p.cat), el("h3", null, p.name), el("p", null, p.desc));
+      const buy = el("div", "buy");
+      const pr = el("span", "price", priceText(p));
+      if (p.was) { const w = el("s", "was", fmt(p.was)); pr.prepend(w); }
+      buy.append(pr);
+      let a;
+      if (p.price === 0) { a = el("a", "btn sm", "รับฟรี"); a.href = "#get"; }
+      else { a = el("button", "btn sm", "ดูรายละเอียด"); a.type = "button"; a.addEventListener("click", () => openDetail(p)); }
+      buy.append(a);
+      body.append(buy);
+      card.append(th, body);
+      grid.append(card);
+    });
+  }
+  cats.forEach(c => {
+    const b = el("button", "chip", c);
+    b.type = "button"; b.dataset.cat = c;
+    b.addEventListener("click", () => { active = c; render(); });
+    chips.append(b);
+  });
+  render();
+})();
+
+/* ===== รีวิว: ตอนนี้เป็นตัวอย่าง (sample: true) ก่อนเปิดขายจริงให้แทนด้วยรีวิวจริง แล้วลบ sample ออก ===== */
+const REVIEWS = [
+  { name: "คุณมิ้นท์", role: "Freelance Content Writer", product: "SEO Writing Handbook", stars: 5, text: "เมื่อก่อนเขียนตามที่ลูกค้าสั่งอย่างเดียว พออ่านบท Search Intent แล้วเริ่มเสนอกลับได้ว่าควรเขียนมุมไหน ลูกค้าเชื่อใจขึ้นเยอะมาก", sample: true },
+  { name: "คุณบอส", role: "เจ้าของร้านออนไลน์", product: "SEO Starter Kit", stars: 5, text: "ไม่เคยรู้ว่าต้องเริ่มจากตรงไหน เล่มฟรีเล่มนี้อ่านจบในคืนเดียว แล้วลองเขียนบทความแรกตาม 6 ขั้นได้เลย ไม่ต้องจำศัพท์เยอะ", sample: true },
+  { name: "คุณแพรว", role: "Content Marketing Lead", product: "Team License", stars: 5, text: "ทีมมีภาษาเดียวกันเวลาคุยเรื่อง SEO ทุกคนใช้ Brief แบบเดียวกัน ตรวจงานง่ายขึ้น และคุยกับ Agency รู้เรื่องกว่าเดิม", sample: true },
+  { name: "คุณต้น", role: "Digital Marketer มือใหม่", product: "SEO Content Toolkit", stars: 5, text: "เปิด Checklist ไล่ก่อนกดเผยแพร่ทุกครั้ง เจอจุดที่ลืมบ่อย ๆ อย่าง Meta Description กับ Internal Link ตอนนี้ไม่พลาดแล้ว", sample: true },
+  { name: "คุณปลา", role: "Content Creator", product: "SEO Workflow Bundle", stars: 4, text: "Template ใช้ง่าย เปิดแล้วกรอกต่อได้เลย ช่วยลดเวลาคิดโครงบทความได้มาก อยากได้ตัวอย่างที่กรอกแล้วเพิ่มอีกสักหน่อย", sample: true },
+  { name: "คุณเจมส์", role: "เจ้าของธุรกิจบริการ", product: "SEO Writing Handbook", stars: 5, text: "ชอบที่ไม่ต้องนั่งดูคลิปยาว ๆ อ่านทีละบทแล้วลองทำกับเว็บตัวเองได้เลย เหมาะกับคนไม่ค่อยมีเวลา", sample: true }
+];
+
+(function reviews() {
+  const track = document.getElementById("track"), dots = document.getElementById("dots");
+  const prev = document.getElementById("rv-prev"), next = document.getElementById("rv-next");
+  document.getElementById("sample-note").hidden = !REVIEWS.some(r => r.sample);
+  const star = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2l-5.9 3.3 1.3-6.6-4.9-4.5 6.6-.8z"/></svg>';
+  const starOff = star.replace('fill="currentColor"', 'fill="none" stroke="currentColor" stroke-width="1.6"');
+  REVIEWS.forEach((r, i) => {
+    const c = document.createElement("article"); c.className = "rv";
+    c.setAttribute("aria-label", `รีวิวที่ ${i + 1} จาก ${REVIEWS.length}`);
+    const st = document.createElement("div"); st.className = "stars"; st.setAttribute("aria-label", `${r.stars} จาก 5 ดาว`);
+    st.innerHTML = star.repeat(r.stars) + starOff.repeat(5 - r.stars);
+    const q = document.createElement("blockquote"); q.textContent = "“" + r.text + "”";
+    const used = document.createElement("span"); used.className = "used"; used.textContent = "ใช้ " + r.product;
+    const who = document.createElement("div"); who.className = "who-r";
+    const av = document.createElement("div"); av.className = "av"; av.textContent = r.name.replace("คุณ", "").trim().charAt(0);
+    const t = document.createElement("div");
+    const nm = document.createElement("div"); nm.className = "nm"; nm.textContent = r.name;
+    const rl = document.createElement("div"); rl.className = "rl"; rl.textContent = r.role;
+    t.append(nm, rl); who.append(av, t);
+    c.append(st, q, used, who); track.append(c);
+    const d = document.createElement("button"); d.type = "button"; d.setAttribute("aria-label", `ไปที่รีวิวที่ ${i + 1}`);
+    d.addEventListener("click", () => track.scrollTo({ left: c.offsetLeft - track.offsetLeft }));
+    dots.append(d);
+  });
+  const step = () => (track.firstElementChild?.offsetWidth || 300) + 20;
+  prev.addEventListener("click", () => track.scrollBy({ left: -step() }));
+  next.addEventListener("click", () => track.scrollBy({ left: step() }));
+  function sync() {
+    const i = Math.round(track.scrollLeft / step());
+    [...dots.children].forEach((d, k) => d.setAttribute("aria-current", k === i));
+    prev.disabled = track.scrollLeft < 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+  track.addEventListener("scroll", () => requestAnimationFrame(sync), { passive: true });
+  window.addEventListener("resize", sync);
+  sync();
+})();
+
+/* privacy dialog: เปิดจากลิงก์ #privacy หรือเข้าเว็บด้วย URL ที่ลงท้าย #privacy */
+(function privacy() {
+  const d = document.getElementById("privacy");
+  const open = () => { if (!d.open) d.showModal(); };
+  document.addEventListener("click", e => { const a = e.target.closest('a[href="#privacy"]'); if (a) { e.preventDefault(); history.replaceState(null, "", "#privacy"); open(); } });
+  d.addEventListener("click", e => { if (e.target === d || e.target.closest(".lg-close")) d.close(); });
+  d.addEventListener("close", () => { if (location.hash === "#privacy") history.replaceState(null, "", location.pathname + location.search); });
+  if (location.hash === "#privacy") open();
+})();
+
+/* opt-in */
+const form = document.getElementById("optin");
+const err = document.getElementById("err");
+const btn = document.getElementById("submit");
+const dl = document.getElementById("dl");
+if (EBOOK_URL) dl.href = EBOOK_URL; else dl.style.display = "none";
+
+/* ที่มาของคนเข้าเว็บ เก็บอัตโนมัติจากลิงก์ เช่น ?utm_source=facebook&utm_campaign=ebook */
+const params = new URLSearchParams(location.search);
+const tracking = {
+  utm_source: params.get("utm_source") || "", utm_medium: params.get("utm_medium") || "", utm_campaign: params.get("utm_campaign") || "",
+  referrer: document.referrer || ""
+};
+let leadEmail = "";
+
+async function sendLead(data) {
+  if (LEAD_ENDPOINT) {
+    const r = await fetch(LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    if (!r.ok && r.type !== "opaque") throw new Error("bad status");
+  } else {
+    try { const all = JSON.parse(localStorage.getItem("sf-leads") || "[]"); all.push(data); localStorage.setItem("sf-leads", JSON.stringify(all)); } catch (x) {}
+  }
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = form.elements;
+  const nickname = f.nickname.value.trim();
+  const email = f.email.value.trim();
+  const role = f.role.value;
+  const show = (msg, el) => { err.textContent = msg; el.focus(); };
+  if (!nickname) return show("กรอกชื่อเล่น เพื่อให้เราเรียกคุณได้ถูก", f.nickname);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return show("กรอกอีเมลให้ครบ เช่น name@email.com", f.email);
+  if (!role) return show("เลือกอาชีพของคุณ 1 ข้อ", f.role);
+  err.textContent = "";
+  btn.disabled = true; btn.textContent = "กำลังส่ง...";
+  try {
+    await sendLead({ type: "signup", nickname, email, role, marketing_consent: document.getElementById("f-consent").checked, product: "seo-starter-kit", ...tracking, at: new Date().toISOString() });
+    leadEmail = email;
+    document.getElementById("get").classList.add("sent");
+    document.getElementById("done-title").textContent = "ส่งแล้ว คุณ" + nickname + " เช็กอีเมลได้เลย";
+    document.getElementById("done").focus();
+  } catch (x) {
+    err.textContent = "ส่งไม่สำเร็จ ตรวจการเชื่อมต่ออินเทอร์เน็ตแล้วลองกดอีกครั้ง";
+  } finally {
+    btn.disabled = false; btn.textContent = "ส่ง E-book ให้ฉัน";
+  }
+});
+
+/* แบบสอบถามหลังสมัคร: กดตอบแล้วส่งข้อมูลเพิ่มผูกกับอีเมลเดิม */
+const answers = {};
+document.querySelectorAll("#survey .opts").forEach(group => {
+  group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", "false"));
+  group.addEventListener("click", async (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    group.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    answers[group.dataset.q] = b.textContent;
+    try { await sendLead({ type: "profile", email: leadEmail, ...answers, at: new Date().toISOString() }); } catch (x) {}
+    if (answers.channel && answers.goal) document.getElementById("sv-thanks").hidden = false;
+  });
+});
+
+</script>
+</body>
+</html>
