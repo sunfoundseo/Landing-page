@@ -73,6 +73,11 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:co
 
 /* form */
 .optin{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:600px}
+.optin.off{display:none}
+.cta-form{margin-top:28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;max-width:600px}
+.cta-form .btn{min-height:52px;padding:0 32px}
+.cta-form .privacy-note{text-align:left}
+@media (max-width:640px){.cta-form .btn{width:100%}}
 .optin .f{display:flex;flex-direction:column;gap:4px}
 .optin .f label{font-size:14px;font-weight:500;color:var(--muted)}
 .optin input,.optin select{min-height:52px;padding:0 16px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;width:100%}
@@ -345,7 +350,13 @@ footer a{color:inherit;margin-right:12px}
         </div>
         <p class="search-note">มีคนกำลังค้นหาคำตอบนี้อยู่ทุกวัน Content ของคุณควรเป็นสิ่งที่เขาเจอ</p>
 
-        <form class="optin" id="optin" novalidate>
+        <!-- ปุ่มไปฟอร์ม Notion: ถ้าจะกลับไปใช้ฟอร์มในหน้าเว็บ ลบบล็อกนี้ แล้วเอา class "off" ออกจาก <form> ด้านล่าง -->
+        <div class="cta-form">
+          <a class="btn" href="https://humble-grass-2b8.notion.site/7239f24a8cd44865a124fbff033927a3" target="_blank" rel="noopener">รับ E-book ฟรี</a>
+          <p class="privacy-note">กรอกแบบฟอร์มสั้น ๆ เพื่อรับไฟล์ เราใช้ข้อมูลของคุณตาม<a href="#privacy">นโยบายความเป็นส่วนตัว</a></p>
+        </div>
+
+        <form class="optin off" id="optin" novalidate>
           <div class="f"><label for="f-name">ชื่อเล่น</label>
           <input id="f-name" name="nickname" type="text" placeholder="เช่น ซัน" autocomplete="given-name" required></div>
           <div class="f"><label for="f-email">อีเมล</label>
@@ -552,7 +563,7 @@ footer a{color:inherit;margin-right:12px}
         <details><summary>ไม่มีพื้นฐาน SEO เลย อ่านเข้าใจไหม</summary><p>เข้าใจได้ เล่มนี้เขียนสำหรับคนที่เริ่มจากศูนย์ ทุกศัพท์เทคนิคมีคำอธิบายภาษาคน และมีตัวอย่างประกอบทุกขั้น</p></details>
         <details><summary>ต้องใช้เครื่องมือที่ต้องจ่ายเงินไหม</summary><p>ไม่ต้องเลย ทุกขั้นในเล่มทำได้ด้วยเครื่องมือฟรี เช่น Google Search และ Google Search Console</p></details>
         <details><summary>ใช้กับธุรกิจเล็ก หรือร้านออนไลน์ได้ไหม</summary><p>ได้แน่นอน หลักคิดเดียวกันใช้ได้ทั้งบล็อกส่วนตัว เว็บบริษัท และร้านค้าออนไลน์ สิ่งที่ต่างคือ Keyword ที่คุณเลือก</p></details>
-        <details><summary>ได้รับ E-book อย่างไร</summary><p>กรอกชื่อและอีเมลด้านบน ลิงก์ดาวน์โหลดจะส่งไปที่อีเมลของคุณ และจะได้รับเนื้อหา SEO ดี ๆ ต่อเนื่อง ยกเลิกรับได้ทุกเมื่อ</p></details>
+        <details><summary>ได้รับ E-book อย่างไร</summary><p>กดปุ่ม “รับ E-book ฟรี” แล้วกรอกแบบฟอร์มสั้น ๆ ลิงก์ดาวน์โหลดจะส่งไปที่อีเมลของคุณ ถ้าเลือกรับเนื้อหา SEO ทางอีเมลไว้ ยกเลิกรับได้ทุกเมื่อ</p></details>
         <details><summary>มีคอร์สวิดีโอหรือคลาสสอนไหม</summary><p>ไม่มี ทุกอย่างที่นี่ออกแบบมาให้อ่านแล้วทำตามได้เอง ไม่ต้องนั่งดูคลิป ไม่ต้องนัดเวลาเรียน เปิด Handbook หรือ Template แล้วใช้กับงานจริงได้ทันที</p></details>
         <details><summary>ซื้อให้ทั้งทีมในบริษัทใช้ได้ไหม</summary><p>ได้ เลือก Team License ทีมจะได้ Handbook และ Template ชุดเดียวกัน พร้อมแบบฝึกหัดและเฉลยให้ฝึกเอง สอบถามเพิ่มเติมได้ที่ [อีเมลหรือ LINE OA ของคุณ]</p></details>
       </div>
@@ -581,7 +592,7 @@ footer a{color:inherit;margin-right:12px}
 
     <h3>2. ข้อมูลที่เราเก็บ</h3>
     <p><b>ข้อมูลที่คุณกรอกเอง:</b> ชื่อเล่น อีเมล อาชีพ และคำตอบแบบสอบถามที่คุณเลือกตอบ เช่น ช่องทางที่รู้จักเราและเป้าหมายด้าน SEO</p>
-    <p><b>ข้อมูลที่เก็บโดยอัตโนมัติ:</b> ช่องทางที่พาคุณมายังเว็บไซต์ เช่น ค่า UTM ในลิงก์ และเว็บไซต์ต้นทาง รวมถึงการตั้งค่าโหมดสว่างหรือมืดที่บันทึกไว้ในเบราว์เซอร์ของคุณเอง</p>
+    <p><b>ข้อมูลที่เก็บโดยอัตโนมัติ:</b> การตั้งค่าโหมดสว่างหรือมืดที่บันทึกไว้ในเบราว์เซอร์ของคุณเอง</p>
     <p><b>ข้อมูลการสั่งซื้อ:</b> เมื่อคุณซื้อสินค้า การชำระเงินดำเนินการโดย Stripe เราได้รับชื่อ อีเมล รายการสินค้า และสถานะการชำระเงิน เราไม่ได้รับและไม่เก็บเลขบัตรของคุณ</p>
 
     <h3>3. เราใช้ข้อมูลเพื่ออะไร</h3>
@@ -593,7 +604,7 @@ footer a{color:inherit;margin-right:12px}
     </ul>
 
     <h3>4. เราส่งต่อข้อมูลให้ใคร</h3>
-    <p>เราไม่ขายข้อมูลของคุณ เราส่งต่อข้อมูลเท่าที่จำเป็นให้ผู้ให้บริการที่ช่วยเราดำเนินงานเท่านั้น ได้แก่ Stripe (ชำระเงิน), [ชื่อระบบอีเมล] (ส่งอีเมล), [Make / Zapier / n8n] (ระบบอัตโนมัติ) และ Google (จัดเก็บข้อมูล) ผู้ให้บริการบางรายมีเซิร์ฟเวอร์อยู่นอกประเทศไทย ซึ่งมีมาตรการคุ้มครองข้อมูลตามมาตรฐานของผู้ให้บริการนั้น</p>
+    <p>เราไม่ขายข้อมูลของคุณ เราส่งต่อข้อมูลเท่าที่จำเป็นให้ผู้ให้บริการที่ช่วยเราดำเนินงานเท่านั้น ได้แก่ Stripe (ชำระเงิน), [ชื่อระบบอีเมล] (ส่งอีเมล), และ Notion (แบบฟอร์มและจัดเก็บข้อมูล) ผู้ให้บริการบางรายมีเซิร์ฟเวอร์อยู่นอกประเทศไทย ซึ่งมีมาตรการคุ้มครองข้อมูลตามมาตรฐานของผู้ให้บริการนั้น</p>
 
     <h3>5. เราเก็บข้อมูลนานแค่ไหน</h3>
     <ul>
